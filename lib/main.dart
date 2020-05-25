@@ -26,75 +26,30 @@ class _ListButtonsState extends State<ListButtons> {
     player.play("note$noteNumber.wav");
   }
 
+  Expanded buildKeys(Color color, int soundNote) {
+    return Expanded(
+      child: FlatButton(
+        color: color,
+        onPressed: () {
+          playSound(soundNote);
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          Expanded(
-            child: FlatButton(
-              child: Text("DÓ"),
-              color: Colors.red,
-              onPressed: () {
-                playSound(1);
-              },
-            ),
-          ),
-          Expanded(
-            child: FlatButton(
-              child: Text("RÉ"),
-              color: Colors.orange,
-              onPressed: () {
-                playSound(2);
-              },
-            ),
-          ),
-          Expanded(
-            child: FlatButton(
-              child: Text("MI"),
-              color: Colors.yellow,
-              onPressed: () {
-                playSound(3);
-              },
-            ),
-          ),
-          Expanded(
-            child: FlatButton(
-              child: Text("FÁ"),
-              color: Colors.green,
-              onPressed: () {
-                playSound(4);
-              },
-            ),
-          ),
-          Expanded(
-            child: FlatButton(
-              child: Text("SOL"),
-              color: Colors.blue,
-              onPressed: () {
-                playSound(5);
-              },
-            ),
-          ),
-          Expanded(
-            child: FlatButton(
-              child: Text("LÁ"),
-              color: Colors.purple,
-              onPressed: () {
-                playSound(6);
-              },
-            ),
-          ),
-          Expanded(
-            child: FlatButton(
-              child: Text("SI"),
-              color: Colors.pink,
-              onPressed: () {
-                playSound(7);
-              },
-            ),
-          ),
+          buildKeys(Colors.red, 1),
+          buildKeys(Colors.orange, 2),
+          buildKeys(Colors.yellow, 3),
+          buildKeys(Colors.green, 4),
+          buildKeys(Colors.blue, 5),
+          buildKeys(Colors.purple, 6),
+          buildKeys(Colors.pink, 7),
         ],
       ),
     );
